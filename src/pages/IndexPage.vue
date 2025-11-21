@@ -1,17 +1,12 @@
 <script setup>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
 import pokeApi from 'src/services/pokeApi'
 
 const pokemon = ref(null)
 const loading = ref(false)
 const error = ref(null)
 const search = ref('charmander') // Valor inicial
-const router = useRouter()
 
-const logout = () => {
-  router.push('/login') // tu página principal
-}
 const fetchPokemon = async () => {
   if (!search.value) return
 
@@ -32,6 +27,18 @@ const fetchPokemon = async () => {
 
 // Cargar el primero al inicio
 fetchPokemon()
+
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+function logout() {
+  // Elimina el estado de login
+  localStorage.removeItem('logged')
+
+  // Redirige al login
+  router.push('/login')
+}
 </script>
 
 <template>
