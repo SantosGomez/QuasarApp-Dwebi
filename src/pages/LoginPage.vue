@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-center">
-    <q-parallax src="https://concepto.de/wp-content/uploads/2019/05/servidor-e1557165670831.jpg">
+    <q-parallax src="https://concepto.de/wp-content/uploads/2019/05/servidor-e1557165670831.jpg ">
       <q-card class="q-pa-lg" flat bordered style="width: 350px">
         <q-card-section class="text-h6 text-center"> Iniciar Sesión </q-card-section>
 
