@@ -32,7 +32,7 @@ const router = useRouter()
 
 const login = () => {
   if (email.value === 'admin@uttn.mx' && password.value === '12345678') {
-    router.push('/home') // tu página principal
+    router.push('/') // tu página principal
   } else {
     error.value = 'Credenciales incorrectas'
   }

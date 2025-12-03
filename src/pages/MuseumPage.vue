@@ -1,6 +1,9 @@
 <template>
+  <div>
+    <q-btn label="Menú" color="primary" class="flex flex q-ma-md" @click="router.push('/')" />
+  </div>
   <q-page class="q-pa-md flex flex-center">
-    <div class="q-gutter-md" style="max-width: 600px; width: 100%;">
+    <div class="q-gutter-md" style="max-width: 600px; width: 100%">
       <q-btn color="primary" label="Obtener obra aleatoria" @click="fetchRandomArtwork" />
 
       <ArtworkCard
@@ -22,10 +25,14 @@
 import { ref, onMounted } from 'vue'
 import ArtworkCard from 'components/ArtworkCard.vue'
 
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
 const artwork = ref(null)
 
 async function fetchRandomArtwork() {
-  const randomId = Math.floor(Math.random() * 100000) 
+  const randomId = Math.floor(Math.random() * 100000)
   const response = await fetch(`https://api.artic.edu/api/v1/artworks/${randomId}`)
   const data = await response.json()
 
@@ -41,7 +48,7 @@ async function fetchRandomArtwork() {
       medium: art.medium_display,
       classification: art.classification_title,
       department: art.department_title,
-      description: art.thumbnail?.alt_text || 'Sin descripción disponible'
+      description: art.thumbnail?.alt_text || 'Sin descripción disponible',
     }
   } else {
     artwork.value = null
